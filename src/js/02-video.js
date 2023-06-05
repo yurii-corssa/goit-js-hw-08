@@ -10,6 +10,8 @@ const saveCurrentTimeToLocal = ({ seconds }) =>
 
 player.on('timeupdate', throttle(saveCurrentTimeToLocal, 1000));
 
-const currentTime = localStorage.getItem('videoplayer-current-time');
+const currentTimeInLocal = localStorage.getItem('videoplayer-current-time');
 
-player.setCurrentTime(currentTime);
+if (currentTimeInLocal) {
+  player.setCurrentTime(currentTimeInLocal);
+}
